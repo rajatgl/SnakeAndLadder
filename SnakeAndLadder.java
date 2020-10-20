@@ -24,9 +24,15 @@ class Player
 				System.out.println("No Play");
 				break;
 			case 1:
-				System.out.println("Ladder");
-				position+=dieNumber;
-				break;
+			//Ensuring exact winning position
+			if(position+dieNumber>100)
+			{
+				System.out.println("Ladder (Player exceeded 100), Current Position: " + position + ", Die Rolled: " + dieNumber);
+				return dieNumber;
+			}
+			System.out.println("Ladder, Initial Position: " + position + ", Die Rolled: " + dieNumber + ", Final Position: " + (position + dieNumber));
+			position+=dieNumber;
+			return dieNumber;
 			default:
 				System.out.println("Snake")
 				position-=dieNumber;
