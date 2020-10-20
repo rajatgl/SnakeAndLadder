@@ -25,9 +25,11 @@ class Player
 				break;
 			case 1:
 				System.out.println("Ladder");
+				position+=dieNumber;
 				break;
 			default:
 				System.out.println("Snake")
+				position-=dieNumber;
 		}
 	}
 }
@@ -37,6 +39,7 @@ public class SnakeAndLadder
 	{
     Player p=new Player(1);
 		System.out.println("Player position is : "+p.position);
+		while(p.position<=100)
 		p.roll();
 	}
 }
