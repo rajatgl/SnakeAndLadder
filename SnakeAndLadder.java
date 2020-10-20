@@ -34,8 +34,16 @@ class Player
 			position+=dieNumber;
 			return dieNumber;
 			default:
-				System.out.println("Snake")
-				position-=dieNumber;
+			//Ensuring player position as 0 even if die roll goes below it
+			if(position-dieNumber<0)
+			{
+				System.out.println("Snake (Player slumped below 0), Current Position: " + position + ", Die Rolled: " + dieNumber + ", Final Position: " + 0);
+				position=0;
+				return -dieNumber;
+			}
+			System.out.println("Snake, Initial Position: " + position + ", Die Rolled: " + dieNumber + ", Final Position: " + (position - dieNumber));
+			position-=dieNumber;
+			return -dieNumber;
 		}
 	}
 }
